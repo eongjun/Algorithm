@@ -30,7 +30,7 @@ int bfs(char ** &map) {
 		}
 		for (int dir = 0; dir < 4; ++dir) {	//BFS
 			//현재 구슬 위치 기억
-				int next_rx = cur.rx;
+			int next_rx = cur.rx;
 			int next_ry = cur.ry;
 			int next_bx = cur.bx;
 			int next_by = cur.by;
