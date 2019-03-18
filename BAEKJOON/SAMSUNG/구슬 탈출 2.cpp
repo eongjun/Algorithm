@@ -9,11 +9,10 @@ public:
 };
 
 INFO start;
+//char** map;
+//char map[10][10];
 
-char map[10][10];
-
-int bfs() {
-	//좌 우 상 하
+int bfs(char ** &map) {
 	const int dx[] = { 0,0,-1,1 };			//우로 이동
 	const int dy[] = { -1,1,0,0 };			//하로 이동
 	int visited[10][10][10][10] = { 0, };	//방문 체크
@@ -100,6 +99,10 @@ int bfs() {
 int main() {
 	int n, m;
 	cin >> n >> m;
+	char** map = new char*[n];
+	for (int i = 0; i < n; ++i) {
+		map[i] = new char[m];
+	}
 
 	for (int i = 0; i < n; ++i) {
 		cin >> map[i];
@@ -120,9 +123,13 @@ int main() {
 
 	start.count = 0;
 
-	int ret = bfs();
+	int ret = bfs(map);
 	cout << ret;
 
+	for (int i = 0; i < n; ++i) {
+		delete[] map[i];
+	}
+	delete[] map;
 
 
 	return 0;
